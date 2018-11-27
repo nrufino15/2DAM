@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+
 public class A1Lambdes {
     public static void main(String[] args) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("d/MM/yyy");
@@ -31,10 +32,19 @@ public class A1Lambdes {
             }
         });
 
+        //Respueta del 1
+        System.out.println("\n1-2");
+        llista_persones.sort((o1, o2) -> o2.getNom().compareTo(o1.getNom()));
+
+
         // 2 - Canviar a Lambda
         for(Persona p: llista_persones) {
             System.out.println(p);
         }
+
+        //Respueta del 2
+        System.out.println();
+        llista_persones.forEach(persona -> System.out.println(persona));
 
         // 3 - Canvia a classe anònima
         System.out.println("\n3-4");
