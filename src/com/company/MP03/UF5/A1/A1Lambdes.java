@@ -23,7 +23,7 @@ public class A1Lambdes {
         Map<Integer,Integer> mapPersones = new HashMap<>();
 
         // 1 - Canviar a lambda
-        System.out.println("\n1-2");
+        System.out.println("\n1");
         Collections.sort(llista_persones, new Comparator<Persona>() {
             @Override
             public int compare(Persona o1, Persona o2) {
@@ -32,41 +32,68 @@ public class A1Lambdes {
             }
         });
 
-        //Respueta del 1
-        System.out.println("\n1-2");
+        /* ---------- Respueta del 1 ---------- */
+        System.out.println("\n1");
         llista_persones.sort((o1, o2) -> o2.getNom().compareTo(o1.getNom()));
 
 
         // 2 - Canviar a Lambda
+        System.out.println("\n2");
         for(Persona p: llista_persones) {
             System.out.println(p);
         }
 
-        //Respueta del 2
+        /* ---------- Respueta del 2 ---------- */
+        System.out.println("\n2");
         System.out.println();
         llista_persones.forEach(persona -> System.out.println(persona));
 
         // 3 - Canvia a classe anònima
-        System.out.println("\n3-4");
+        System.out.println("\n3");
         //ordenació alfabètica inversa del nom
         llista_persones.sort((o1,o2) -> o2.getNom().compareTo(o1.getNom()));
 
+        /* ---------- Respuesta 3 ---------- */
+        System.out.println("\n3");
+        Collections.sort(llista_persones, new Comparator<Persona>() {
+            @Override
+            public int compare(Persona o1, Persona o2) {
+                if (o1.getNom().charAt(0) >= o2.getNom().charAt(0)) return 1;
+                else return -1;
+            }
+        });
+
         // 4 - Canvia per una crida al mètode per referència que hagis creat tu
+        System.out.println("\n4");
         for(Persona p: llista_persones) {
             System.out.println(p);
         };
 
+        /* ---------- Respuesta 4 ----------*/
+        /* Usa el metodo que esta definido al final del codigo: imprimir */
+        System.out.println("\n4");
+        llista_persones.forEach(A1Lambdes::imprimir);
+
+
         // 5 - Omplir map. Canviar per un forEach amb lambda
+        System.out.println("\n5");
         for(Persona per : llista_persones) {
             mapPersones.put(per.getAge(),1);
         }
 
-        // 6 - Canvia per un recorregut forEach amb lambda
+        /* ---------- Respuesta 5 ---------- */
         System.out.println("\n5");
+        llista_persones.forEach(persona -> mapPersones.put(persona.getAge(),1));
+
+        // 6 - Canvia per un recorregut forEach amb lambda
+        System.out.println("\n6");
         for(Map.Entry entry : mapPersones.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
+        /* ---------- Respuesta 6 ---------- */
+        System.out.println("\n6");
+        mapPersones.entrySet().forEach(integerIntegerEntry -> System.out.println(integerIntegerEntry.getKey() + " : " + integerIntegerEntry.getValue()));
 
         /* 7 -
             Esbrina com s'utilitzen els mètodes de map següents
@@ -94,5 +121,10 @@ public class A1Lambdes {
 
         // 10- Esborrar del llistat les persones entre 30 i 40 anys (amb lambda)
 
+    }
+
+    /* ---------- Respuesta 4 ----------*/
+    public static void imprimir(Persona p) {
+        System.out.println(p);
     }
 }
