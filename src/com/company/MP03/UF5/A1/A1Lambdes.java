@@ -115,11 +115,22 @@ public class A1Lambdes {
 
          */
 
+        /* ---------- Respuesta 7 ---------- */
+        /*llista_persones.forEach(persona -> {
+            mapPersones.computeIfAbsent(persona.getAge(),(k,v) -> ++v);
+            mapPersones.putIfAbsent(persona.getAge(),1);
+        });*/
+
         // 8 - llistat de persones DONA amb lambda
+        llista_persones.forEach(persona -> {
+            if (persona.getGenere() == Persona.Genere.DONA) System.out.println(persona);
+        });
 
         // 9 - Llistat dels dos HOMES més joves
 
+
         // 10- Esborrar del llistat les persones entre 30 i 40 anys (amb lambda)
+        llista_persones.removeIf(persona -> persona.getAge()>30 && persona.getAge()<40);
 
     }
 
@@ -127,4 +138,8 @@ public class A1Lambdes {
     public static void imprimir(Persona p) {
         System.out.println(p);
     }
+
+    /* ---------- Respuesta 7 ---------- */
+
+
 }
