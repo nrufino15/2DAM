@@ -1,34 +1,41 @@
 package com.company.MP03.UF5.A3;
 
 public class MembreFamilia extends Thread {
+	Comandament com;
+	static int canal;
 
-    private Comandament comandament;
+	public MembreFamilia(Comandament c, String nom) {
+		super(nom);
+		com = c;
+		canal = 0;
+	}
 
-    public MembreFamilia(String nom, Comandament c) {
-        super(nom);
-        comandament = c;
-    }
+	@Override
+	public void run() {
+		for(;;) {
+			//Agafa el comandament
+			com.Agafa();
+			int canal2 = (int)((Math.random()*10)+1); // Tria el canal
+			System.out.println(getName() + " està mirant el canal " + canal2 + new String((canal==canal2)?" ":" (ha canviat de canal)"));
+			canal = canal2;
+			//Mira la tele
+			try {
+				Thread.sleep((long) (Math.random()*800)+200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			//Deixa el comandament
+			com.Deixa();
+			//Descansa de tanta tele
+			try {
+				System.out.println(getName() + " ja no miro la tele");
+				Thread.sleep((long) (Math.random()*1000)+500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 
-    @Override
-    public void run() {
-        for (;;) {
-            comandament.agafar();
-            comandament.setCanal((int)(Math.random()*100));
-            //Mirar tele
-            System.out.println(getName() + " Mirando la tele canal: " + comandament.getCanal());
-            try {
-                Thread.sleep((long) (Math.random() * 5000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            comandament.deixar();
-            //Descansar
-            try {
-                Thread.sleep((long) (Math.random() * 10000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
