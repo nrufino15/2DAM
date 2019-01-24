@@ -12,7 +12,4 @@ public class Main {
     Pare pare = new Pare("Gerardo",pot);
 
     ScheduledExecutorService service = Executors.newScheduledThreadPool(4);
-
-
-
 }
