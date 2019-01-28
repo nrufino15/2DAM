@@ -1,4 +1,4 @@
-package com.company.MP05.UF2.NF4.original;
+package com.company.MP05.UF2.NF4.A1.ex1;
 
 public class MyMath {
     public static float resolve(String expression){

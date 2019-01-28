@@ -1,6 +1,4 @@
-package com.company.MP05.UF2.NF4.ex1;
-
-import java.util.ArrayList;
+package com.company.MP05.UF2.NF4.A1.original;
 
 public class MyMath {
     public static float resolve(String expression){

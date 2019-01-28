@@ -1,4 +1,4 @@
-package com.company.MP05.UF2.NF4.ex2;
+package com.company.MP05.UF2.NF4.A1.ex2;
 
 /**
  *  Copia la classe MyMath i el teu joc de proves dins aquest paquet.

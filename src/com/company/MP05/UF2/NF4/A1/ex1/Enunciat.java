@@ -1,4 +1,4 @@
-package com.company.MP05.UF2.NF4.ex1;
+package com.company.MP05.UF2.NF4.A1.ex1;
 import java.util.Scanner;
 
 /**
