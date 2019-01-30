@@ -1,4 +1,4 @@
-package com.company.M09.A3.TV;
+package com.company.MP09.A3.TV;
 
 public class MembreFamilia extends Thread {
 	Comandament com;

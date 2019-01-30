@@ -1,6 +1,6 @@
-package com.company.M09.A4;
+package com.company.MP09.A4;
 
-public class Cubierto {
+public class  Cubierto {
 
     private boolean libre;
 
