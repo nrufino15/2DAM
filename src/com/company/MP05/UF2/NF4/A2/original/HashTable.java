@@ -3,6 +3,9 @@ package com.company.MP05.UF2.NF4.A2.original;
 // Original source code: https://gist.github.com/amadamala/3cdd53cb5a6b1c1df540981ab0245479
 // Modified by Fernando Porrino Serrano for academic purposes.
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class HashTable {
     private int INITIAL_SIZE = 16;
     private int size = 0;
@@ -12,7 +15,7 @@ public class HashTable {
         return this.size;
     }
 
-    public int real_size(){
+    public int realSize(){
         return this.INITIAL_SIZE;
     }
 
@@ -116,8 +119,73 @@ public class HashTable {
         return hashTableStr.toString();
     }
 
+    public ArrayList<String> getCollisionsForKey(String key) {
+        return getCollisionsForKey(key, 1);
+    }
+
+    public ArrayList<String> getCollisionsForKey(String key, int quantity){
+        /*
+          Main idea:
+          alphabet = {0, 1, 2}
+
+          Step 1: "000"
+          Step 2: "001"
+          Step 3: "002"
+          Step 4: "010"
+          Step 5: "011"
+           ...
+          Step N: "222"
+
+          All those keys will be hashed and checking if collides with the given one.
+        * */
+
+        final char[] alphabet = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        ArrayList<Integer> newKey = new ArrayList();
+        ArrayList<String> foundKeys = new ArrayList();
+
+        newKey.add(0);
+        int collision = getHash(key);
+        int current = newKey.size() -1;
+
+        while (foundKeys.size() < quantity){
+            //building current key
+            String currentKey = "";
+            for(int i = 0; i < newKey.size(); i++)
+                currentKey += alphabet[newKey.get(i)];
+
+            if(!currentKey.equals(key) && getHash(currentKey) == collision)
+                foundKeys.add(currentKey);
+
+            //increasing the current alphabet key
+            newKey.set(current, newKey.get(current)+1);
+
+            //overflow over the alphabet on current!
+            if(newKey.get(current) == alphabet.length){
+                int previous = current;
+                do{
+                    //increasing the previous to current alphabet key
+                    previous--;
+                    if(previous >= 0)  newKey.set(previous, newKey.get(previous) + 1);
+                }
+                while (previous >= 0 && newKey.get(previous) == alphabet.length);
+
+                //cleaning
+                for(int i = previous + 1; i < newKey.size(); i++)
+                    newKey.set(i, 0);
+
+                //increasing size on underflow over the key size
+                if(previous < 0) newKey.add(0);
+
+                current = newKey.size() -1;
+            }
+        }
+
+        return  foundKeys;
+    }
+
     public static void main(String[] args) {
         HashTable hashTable = new HashTable();
+        
         // Put some key values.
         for(int i=0; i<30; i++) {
             final String key = String.valueOf(i);
