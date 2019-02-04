@@ -65,10 +65,15 @@ public class HashTable {
             //Codigo antiguo: if(temp.prev == null) entries[hash] = null;
             //El codigo nuevo lo que nos dice es: Si temp.next es diferente de null y el temp.prev es nulo
             //que la entry de la key sea el siguiente.
-            if(temp.next != null && temp.prev == null) entries[hash] = temp.next;             //esborrar element únic (no col·lissió)
-            else{
-                if(temp.next != null) temp.next.prev = temp.prev;   //esborrem temp, per tant actualitzem l'anterior al següent
-                temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
+            if(temp.next != null && temp.prev == null){
+                entries[hash] = temp.next;
+            } else if (temp.next == null && temp.prev == null) {
+                entries[hash] = null;
+            } else{
+                if(temp.next != null) {
+                    temp.next.prev = temp.prev;
+                }
+                temp.prev.next = temp.next;
             }
         }
     }
