@@ -61,8 +61,11 @@ public class HashTable {
             HashEntry temp = entries[hash];
             while( !temp.key.equals(key))
                 temp = temp.next;
-
-            if(temp.prev == null) entries[hash] = null;             //esborrar element únic (no col·lissió)
+            //El IF estaba mal. A la hora de borrar un solo elemento borraba toda la linea no el seleccionado.
+            //Codigo antiguo: if(temp.prev == null) entries[hash] = null;
+            //El codigo nuevo lo que nos dice es: Si temp.next es diferente de null y el temp.prev es nulo
+            //que la entry de la key sea el siguiente.
+            if(temp.next != null && temp.prev == null) entries[hash] = temp.next;             //esborrar element únic (no col·lissió)
             else{
                 if(temp.next != null) temp.next.prev = temp.prev;   //esborrem temp, per tant actualitzem l'anterior al següent
                 temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
@@ -100,6 +103,7 @@ public class HashTable {
     @Override
     public String toString() {
         int bucket = 0;
+        //bucket++;
         StringBuilder hashTableStr = new StringBuilder();
         for (HashEntry entry : entries) {
             if(entry == null) {
