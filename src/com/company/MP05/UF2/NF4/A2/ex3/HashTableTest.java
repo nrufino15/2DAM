@@ -9,22 +9,13 @@ class HashTableTest {
     void put() {
         HashTable ht = new HashTable();
 
-//        ht.put("1", "Nicky");
-//        Assertions.assertEquals("\n bucket[0] = [1, Nicky]", ht.toString());
-//
-//        ht.put("2", "Maria");
-//        Assertions.assertEquals("\n bucket[0] = [1, Nicky]\n bucket[1] = [2, Maria]", ht.toString());
-//
-//        ht.put("1", "Dani");
-//        Assertions.assertEquals("\n bucket[0] = [1, Dani]\n bucket[1] = [2, Maria]", ht.toString());
-
-        for(int i=0; i<230; i++) {
+        for(int i=0; i<30; i++) {
             final String key = String.valueOf(i);
             ht.put(key, key);
         }
 
         System.out.println(ht);
-        System.out.println("\n"+ht.realSize());
+        System.out.println("\n Tamaño real: "+ht.realSize()+"  "+"Cantidad de datos: "+ ht.size());
     }
 
     @Test
@@ -59,20 +50,37 @@ class HashTableTest {
             ht.put(key, key);
         }
 
-        ht.drop("29");
+        ht.drop("1");
 
-        Assertions.assertEquals("\n bucket[0] = [0, 0] -> [11, 11] -> [22, 22]\n" +
-                " bucket[1] = [1, 1] -> [12, 12] -> [23, 23]\n" +
-                " bucket[2] = [2, 2] -> [13, 13] -> [24, 24]\n" +
-                " bucket[3] = [3, 3] -> [14, 14] -> [25, 25]\n" +
-                " bucket[4] = [4, 4] -> [15, 15] -> [26, 26]\n" +
-                " bucket[5] = [5, 5] -> [16, 16] -> [27, 27]\n" +
-                " bucket[6] = [6, 6] -> [17, 17] -> [28, 28]\n" +
-                " bucket[7] = [7, 7] -> [18, 18]\n" +
-                " bucket[8] = [8, 8] -> [19, 19]\n" +
-                " bucket[9] = [9, 9]\n" +
-                " bucket[10] = [20, 20]\n" +
-                " bucket[11] = [10, 10] -> [21, 21]", ht.toString());
+        Assertions.assertEquals("\n bucket[0] = [22, 22]\n" +
+                " bucket[1] = [23, 23]\n" +
+                " bucket[2] = [24, 24]\n" +
+                " bucket[3] = [25, 25]\n" +
+                " bucket[4] = [26, 26]\n" +
+                " bucket[5] = [27, 27]\n" +
+                " bucket[6] = [28, 28]\n" +
+                " bucket[7] = [29, 29]\n" +
+                " bucket[8] = [10, 10]\n" +
+                " bucket[9] = [11, 11]\n" +
+                " bucket[10] = [12, 12]\n" +
+                " bucket[11] = [13, 13]\n" +
+                " bucket[12] = [14, 14]\n" +
+                " bucket[13] = [15, 15]\n" +
+                " bucket[14] = [16, 16]\n" +
+                " bucket[15] = [17, 17]\n" +
+                " bucket[16] = [18, 18]\n" +
+                " bucket[17] = [19, 19]\n" +
+                " bucket[18] = [0, 0]\n" +
+                " bucket[19] = [2, 2]\n" +
+                " bucket[20] = [3, 3]\n" +
+                " bucket[21] = [4, 4]\n" +
+                " bucket[22] = [5, 5]\n" +
+                " bucket[23] = [6, 6]\n" +
+                " bucket[24] = [7, 7]\n" +
+                " bucket[25] = [8, 8]\n" +
+                " bucket[26] = [9, 9]\n" +
+                " bucket[27] = [20, 20]\n" +
+                " bucket[28] = [21, 21]", ht.toString());
 
         //¡¡Que locura es esta profe. Apruebame ya!!
 

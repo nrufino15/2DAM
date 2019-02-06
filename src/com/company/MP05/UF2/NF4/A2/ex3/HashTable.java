@@ -19,23 +19,22 @@ public class HashTable {
         return this.INITIAL_SIZE;
     }
 
-    private void colision(String key, Object value){
+    private void colision(String key, Object value){                   // New code added, in which we double the size of the hash so that there are no collisions.
         INITIAL_SIZE=INITIAL_SIZE*2;
-        HashEntry[] ent2 = new HashEntry[INITIAL_SIZE];
+        HashEntry[] he = new HashEntry[INITIAL_SIZE];
 
         for (int i = 0; i <entries.length ; i++) {
             if ( entries[i] != null){
-                HashEntry temp = entries[i];
-                int hash = getHash(temp.key);
-                if (ent2[hash] == null){
-                    ent2[hash] = temp;
+                HashEntry tmp = entries[i];
+                int hash = getHash(tmp.key);
+                if (he[hash] == null){
+                    he[hash] = tmp;
                 }else {
                     colision(key, value);
                 }
             }
         }
-        entries = ent2;
-//        size--;
+        entries = he;
         put(key, value);
 
     }
