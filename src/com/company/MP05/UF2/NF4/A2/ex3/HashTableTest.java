@@ -1,24 +1,33 @@
 package com.company.MP05.UF2.NF4.A2.ex3;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 class HashTableTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void put() {
         HashTable ht = new HashTable();
 
-        ht.put("1", "Nicky");
-        Assertions.assertEquals("\n bucket[0] = [1, Nicky]", ht.toString());
+//        ht.put("1", "Nicky");
+//        Assertions.assertEquals("\n bucket[0] = [1, Nicky]", ht.toString());
+//
+//        ht.put("2", "Maria");
+//        Assertions.assertEquals("\n bucket[0] = [1, Nicky]\n bucket[1] = [2, Maria]", ht.toString());
+//
+//        ht.put("1", "Dani");
+//        Assertions.assertEquals("\n bucket[0] = [1, Dani]\n bucket[1] = [2, Maria]", ht.toString());
 
-        ht.put("2", "Maria");
-        Assertions.assertEquals("\n bucket[0] = [1, Nicky]\n bucket[1] = [2, Maria]", ht.toString());
+        for(int i=0; i<230; i++) {
+            final String key = String.valueOf(i);
+            ht.put(key, key);
+        }
 
-        ht.put("1", "Dani");
-        Assertions.assertEquals("\n bucket[0] = [1, Dani]\n bucket[1] = [2, Maria]", ht.toString());
+        System.out.println(ht);
+        System.out.println("\n"+ht.realSize());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void get() {
         HashTable ht = new HashTable();
 
@@ -28,10 +37,10 @@ class HashTableTest {
             ht.put(key, key);
         }
 
-        String nombre = ht.get("12");
+        Object nombre = ht.get("12");                                   //Chaged String to Object
         Assertions.assertEquals("12", nombre);
 
-        String nombre2 = ht.get("2");
+        Object nombre2 = ht.get("2");                                   //Chaged String to Object
         Assertions.assertEquals("2", nombre2);
 
         //¡¡Que locura es esta profe. Apruebame ya!!
@@ -40,7 +49,7 @@ class HashTableTest {
 
 
     }
-    @org.junit.jupiter.api.Test
+    @Test
     void drop() {
         HashTable ht = new HashTable();
 
@@ -67,5 +76,35 @@ class HashTableTest {
 
         //¡¡Que locura es esta profe. Apruebame ya!!
 
+    }
+
+    @Test
+    void size() {
+        HashTable ht = new HashTable();
+
+        for(int i=0; i<30; i++) {
+            final String key = String.valueOf(i);
+            ht.put(key, key);
+        }
+
+        ht.drop("9");
+        System.out.println(ht);
+        System.out.println("\n El tamaño de MapHash: "+ht.size());
+
+//        ht.put("1", "Nicky");
+//        ht.put("2", "Kennedy");
+//
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
+//
+//        ht.drop("1");
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
+    }
+
+    @Test
+    void realSize() {
+        HashTable ht = new HashTable();
+        System.out.println("\n El tamaño de MapHash: "+ht.realSize());
     }
 }
