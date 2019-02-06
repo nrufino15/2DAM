@@ -1,10 +1,11 @@
 package com.company.MP05.UF2.NF4.A2.ex2;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 class HashTableTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void put() {
         HashTable ht = new HashTable();
 
@@ -18,7 +19,7 @@ class HashTableTest {
         Assertions.assertEquals("\n bucket[0] = [1, Dani]\n bucket[1] = [2, Maria]", ht.toString());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void get() {
         HashTable ht = new HashTable();
 
@@ -40,7 +41,7 @@ class HashTableTest {
 
 
     }
-    @org.junit.jupiter.api.Test
+    @Test
     void drop() {
         HashTable ht = new HashTable();
 
@@ -67,5 +68,35 @@ class HashTableTest {
 
         //¡¡Que locura es esta profe. Apruebame ya!!
 
+    }
+
+    @Test
+    void size() {
+        HashTable ht = new HashTable();
+
+        for(int i=0; i<30; i++) {
+            final String key = String.valueOf(i);
+            ht.put(key, key);
+        }
+
+        ht.drop("9");
+        System.out.println(ht);
+        System.out.println("\n El tamaño de MapHash: "+ht.size());
+
+//        ht.put("1", "Nicky");
+//        ht.put("2", "Kennedy");
+//
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
+//
+//        ht.drop("1");
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
+    }
+
+    @Test
+    void realSize() {
+        HashTable ht = new HashTable();
+        System.out.println("\n El tamaño de MapHash: "+ht.realSize());
     }
 }

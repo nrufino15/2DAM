@@ -1,7 +1,7 @@
 package com.company.MP05.UF2.NF4.A2.ex2;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {          // Main class extracted from the HashTable class with the option to extract class with refactor.
         HashTable hashTable = new HashTable();
 
         // Put some key values.
