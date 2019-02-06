@@ -1,6 +1,7 @@
 package com.company.MP05.UF2.NF4.A2.ex1;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountExpiredException;
 
@@ -71,5 +72,17 @@ class HashTableTest {
 
         //¡¡Que locura es esta profe. Apruebame ya!!
 
+    }
+
+    @Test
+    void size() {
+        HashTable ht = new HashTable();
+        ht.size();
+    }
+
+    @Test
+    void realSize() {
+        HashTable ht = new HashTable();
+        ht.realSize();
     }
 }
