@@ -77,12 +77,30 @@ class HashTableTest {
     @Test
     void size() {
         HashTable ht = new HashTable();
-        ht.size();
+
+        for(int i=0; i<30; i++) {
+            final String key = String.valueOf(i);
+            ht.put(key, key);
+        }
+
+        ht.drop("9");
+        System.out.println(ht);
+        System.out.println("\n El tamaño de MapHash: "+ht.size());
+
+//        ht.put("1", "Nicky");
+//        ht.put("2", "Kennedy");
+//
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
+//
+//        ht.drop("1");
+//        System.out.println(ht);
+//        System.out.println("\n El tamaño de MapHash: "+ht.size());
     }
 
     @Test
     void realSize() {
         HashTable ht = new HashTable();
-        ht.realSize();
+        System.out.println("\n El tamaño de MapHash: "+ht.realSize());
     }
 }
