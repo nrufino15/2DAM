@@ -115,6 +115,7 @@ public class HashTable {
         int bucket = 0;
         //bucket++;
         StringBuilder hashTableStr = new StringBuilder();
+        bucket++;
         for (HashEntry entry : entries) {
             if(entry == null) {
                 continue;
