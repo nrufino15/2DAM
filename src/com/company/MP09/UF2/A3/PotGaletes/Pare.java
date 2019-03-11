@@ -1,4 +1,4 @@
-package com.company.MP09.A3.PotGaletes;
+package com.company.MP09.UF2.A3.PotGaletes;
 
 public class Pare extends Thread {
     Pot pot;

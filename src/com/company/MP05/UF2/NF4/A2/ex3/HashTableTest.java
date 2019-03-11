@@ -9,6 +9,7 @@ class HashTableTest {
     void put() {
         HashTable ht = new HashTable();
 
+
         for(int i=0; i<30; i++) {
             final String key = String.valueOf(i);
             ht.put(key, key);
