@@ -1,4 +1,4 @@
-package com.company.MP09.UF3.A2;
+package com.company.MP09.UF2.A2;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

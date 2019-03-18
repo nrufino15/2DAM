@@ -1,4 +1,4 @@
-package com.company.MP09.UF3.A3;
+package com.company.MP09.UF2.A3;
 
 import java.io.*;
 import java.net.Socket;

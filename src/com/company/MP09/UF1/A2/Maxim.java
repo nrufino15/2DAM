@@ -1,4 +1,4 @@
-package com.company.MP09.UF2.A2;
+package com.company.MP09.UF1.A2;
 
 import java.util.concurrent.ForkJoinPool;
 

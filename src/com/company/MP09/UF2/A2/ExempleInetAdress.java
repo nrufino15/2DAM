@@ -1,8 +1,7 @@
-package com.company.MP09.UF3.A2;
+package com.company.MP09.UF2.A2;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Created by jordi on 23/02/17.
